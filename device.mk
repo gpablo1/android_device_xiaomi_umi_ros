@@ -32,6 +32,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,qdcm_calib_data_*.xml,$(LOCAL_PATH)/qdcm/,$(TARGET_COPY_OUT_VENDOR)/etc/)
 
+# Init
+$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):init_xiaomi_umi)																
 # DSP Volume Synchronizer
 PRODUCT_PACKAGES += \
     DSPVolumeSynchronizer
@@ -45,6 +47,8 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.barometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.barometer.xml
 
+# Shipping API level
+PRODUCT_SHIPPING_API_LEVEL := 29					
 # PowerShare
 PRODUCT_PACKAGES += \
     vendor.lineage.powershare@1.0-service.default
