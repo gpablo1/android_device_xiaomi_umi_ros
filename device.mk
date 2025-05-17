@@ -32,9 +32,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,qdcm_calib_data_*.xml,$(LOCAL_PATH)/qdcm/,$(TARGET_COPY_OUT_VENDOR)/etc/)
 
-# Init
-$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):init_xiaomi_umi)
-
 # DSP Volume Synchronizer
 PRODUCT_PACKAGES += \
     DSPVolumeSynchronizer
@@ -47,9 +44,6 @@ DEVICE_PACKAGE_OVERLAYS += \
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.barometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.barometer.xml
-
-# Shipping API level
-PRODUCT_SHIPPING_API_LEVEL := 29
 
 # PowerShare
 PRODUCT_PACKAGES += \
@@ -69,3 +63,15 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Inherit from vendor blobs
 $(call inherit-product, vendor/xiaomi/umi/umi-vendor.mk)
+
+# Call HyperOS Gallery,GalleryEditor,VideoPlayer
+$(call inherit-product-if-exists, vendor/xiaomi/miui-apps/miui-apps.mk)
+
+# Viper4AndroidFX
+$(call inherit-product-if-exists, packages/apps/ViPER4AndroidFX/config.mk)
+
+# Camera
+$(call inherit-product-if-exists, vendor/xiaomi/camera/miuicamera.mk)
+
+# Miuiapps
+$(call inherit-product, vendor/xiaomi/miuiapps/config.mk)
