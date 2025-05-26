@@ -75,8 +75,8 @@ $(call inherit-product-if-exists, vendor/xiaomi/miui-apps/miui-apps.mk)
 $(call inherit-product-if-exists, packages/apps/ViPER4AndroidFX/config.mk)
 
 # Camera
-#$(call inherit-product-if-exists, vendor/xiaomi/camera/miuicamera.mk)
-$(call inherit-product, vendor/xiaomi/miuicamera/config.mk)
+$(call inherit-product-if-exists, vendor/xiaomi/camera/miuicamera.mk)
+#$(call inherit-product, vendor/xiaomi/miuicamera/config.mk)
 
 # Miuiapps
 #$(call inherit-product, vendor/xiaomi/miuiapps/config.mk)
