@@ -79,7 +79,7 @@ $(call inherit-product-if-exists, vendor/xiaomi/camera/miuicamera.mk)
 #$(call inherit-product, vendor/xiaomi/miuicamera/config.mk)
 
 # Miuiapps
-#$(call inherit-product, vendor/xiaomi/miuiapps/config.mk)
+$(call inherit-product, vendor/xiaomi/miuiapps/config.mk)
 
 # GcamGo
 $(call inherit-product-if-exists, vendor/gcgop/config.mk)
