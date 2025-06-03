@@ -83,5 +83,3 @@ $(call inherit-product, vendor/xiaomi/miuiapps/config.mk)
 
 # GcamGo
 $(call inherit-product-if-exists, vendor/gcgop/config.mk)
-
-POST_KERNEL_BUILD_HOOK := $(KERNEL_DIR)/scripts/sign_ksu.sh
