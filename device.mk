@@ -34,9 +34,6 @@ PRODUCT_COPY_FILES += \
 
 # Init
 $(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):init_xiaomi_umi)																
-# DSP Volume Synchronizer
-PRODUCT_PACKAGES += \
-    DSPVolumeSynchronizer
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
