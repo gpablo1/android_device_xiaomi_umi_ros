@@ -14,8 +14,6 @@ $(call inherit-product, device/xiaomi/sm8250-common/kona.mk)
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
-TARGET_IS_VAB := false
-
 # Audio configs
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
@@ -34,9 +32,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,qdcm_calib_data_*.xml,$(LOCAL_PATH)/qdcm/,$(TARGET_COPY_OUT_VENDOR)/etc/)
 
-# Init
-$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):init_xiaomi_umi)																
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
@@ -47,10 +42,13 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.barometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.barometer.xml
 
 # Shipping API level
-PRODUCT_SHIPPING_API_LEVEL := 29					
+PRODUCT_SHIPPING_API_LEVEL := 29
+
 # PowerShare
 PRODUCT_PACKAGES += \
-    vendor.lineage.powershare@1.0-service.default
+    vendor.lineage.powershare-service.default
+
+$(call soong_config_set,lineage_powershare,powershare_path,/sys/class/power_supply/wireless/reverse_chg_mode)
 
 # Rootdir
 PRODUCT_PACKAGES += \
