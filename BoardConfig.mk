@@ -12,14 +12,17 @@ DEVICE_PATH := device/xiaomi/umi
 # Display
 TARGET_SCREEN_DENSITY := 440
 
+# Init
+$(call soong_config_set,libinit,vendor_init_lib,//$(DEVICE_PATH):init_xiaomi_umi)
+
 # Kernel
-TARGET_KERNEL_CONFIG := umi_defconfig
+TARGET_KERNEL_CONFIG += vendor/xiaomi/umi.config
+
+# ANT+
+BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
 
 # OTA assert
 TARGET_OTA_ASSERT_DEVICE := umi
-
-# PowerShare
-TARGET_POWERSHARE_PATH := /sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8150b@2:qcom,qpnp-smb5/power_supply/wireless/reverse_chg_mode
 
 # Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
